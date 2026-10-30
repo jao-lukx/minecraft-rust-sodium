@@ -1,0 +1,7 @@
+{
+  "id": "rust_sodium",
+  "name": "Sodium-inspired Rust",
+  "description": "Or\u00e7amento adaptativo de upload de chunks e oclus\u00e3o de entidades.",
+  "version": "0.1.0",
+  "horizon": "e4472a7423da0740c881132d61e8e9b368bfef4c"
+}
