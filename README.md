@@ -58,3 +58,7 @@ Implementação inicial inspirada na finalidade do Sodium: suavizar a carga de r
 - [minecraft-rust-jei](https://github.com/jao-lukx/minecraft-rust-jei)
 - [minecraft-rust-mouse-tweaks](https://github.com/jao-lukx/minecraft-rust-mouse-tweaks)
 - [minecraft-rust-zoom](https://github.com/jao-lukx/minecraft-rust-zoom)
+
+## Download dos fontes
+
+[Baixar pacote 0.1.0](https://raw.githubusercontent.com/jao-lukx/minecraft-rust-sodium/main/downloads/rust_sodium-0.1.0-source.zip). Confira o SHA-256 em `downloads/SHA256SUMS`. Exige recompilar o cliente, conforme as instruções acima.
