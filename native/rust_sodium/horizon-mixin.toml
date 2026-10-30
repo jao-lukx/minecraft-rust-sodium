@@ -1,0 +1,47 @@
+[mod]
+id = "rust_sodium"
+version = "0.2.0"
+priority = 100
+
+[compatibility]
+horizon_revision = "e4472a7423da0740c881132d61e8e9b368bfef4c"
+
+[[module]]
+id = "runtime"
+file = "crates/horizon-client/src/game.rs"
+name = "rust_sodium_runtime"
+source = "runtime.rs"
+
+[[module]]
+id = "core"
+file = "crates/horizon-client/src/game.rs"
+name = "rust_sodium_core"
+source = "core.rs"
+
+[[injection]]
+id = "list"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_mods"
+helper = "list.rs"
+bindings = [{"name" = "game", "ty" = "&mut crate::game::Game<'_>", "value" = "&mut *self"}, {"name" = "mods", "ty" = "&mut Vec<crate::game::native_hooks::NativeMod>", "value" = "mods"}]
+
+[[injection]]
+id = "frame"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_frame"
+helper = "frame.rs"
+bindings = [{"name" = "game", "ty" = "&mut crate::game::Game<'_>", "value" = "&mut *self"}, {"name" = "elapsed", "ty" = "std::time::Duration", "value" = "elapsed"}]
+
+[[injection]]
+id = "dropin_budget"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_upload_budget"
+helper = "dropin_budget.rs"
+bindings = [{"name" = "game", "ty" = "&crate::game::Game<'_>", "value" = "&*self"}, {"name" = "budget", "ty" = "&mut Option<(u32,u32)>", "value" = "budget"}]
+
+[[injection]]
+id = "dropin_culling"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_entity_culling"
+helper = "dropin_culling.rs"
+bindings = [{"name" = "game", "ty" = "&crate::game::Game<'_>", "value" = "&*self"}, {"name" = "enabled", "ty" = "&mut bool", "value" = "enabled"}]
